@@ -3,6 +3,7 @@ package com.indianstatescensus;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
@@ -11,9 +12,12 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 
 public class StateCensusAnalyser {
-    private static final String SAMPLE_CSV_FILE_PATH = "StateCode123.csv";
+    private static final String SAMPLE_CSV_FILE_PATH = "StateCode.csv";
 
     public int readRecord() throws IOException, StateCensusAnalyserException {
+        if(!SAMPLE_CSV_FILE_PATH.contains(".csv")){
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.INVALID_EXTENSION, "Incorrect File Extension");
+        }
         int counter = 0;
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
@@ -32,5 +36,4 @@ public class StateCensusAnalyser {
         }
         return counter;
     }
-
 }

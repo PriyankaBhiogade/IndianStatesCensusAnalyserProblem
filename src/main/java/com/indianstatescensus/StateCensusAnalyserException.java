@@ -3,7 +3,7 @@ package com.indianstatescensus;
 public class StateCensusAnalyserException extends Throwable {
 
     enum ExceptionType {
-        NO_SUCH_File,ENTERED_EMPTY,ENTERED_NULL;
+        NO_SUCH_File,INVALID_EXTENSION
     }
 
     ExceptionType type;
