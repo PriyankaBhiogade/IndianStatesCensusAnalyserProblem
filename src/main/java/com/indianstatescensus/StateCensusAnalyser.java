@@ -6,13 +6,14 @@ import com.opencsv.bean.CsvToBeanBuilder;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.Iterator;
 
 public class StateCensusAnalyser {
-    private static final String SAMPLE_CSV_FILE_PATH = "/home/admin1/Desktop/IndianStatesCensusAnalyserProblem/StateCode.csv";
+    private static final String SAMPLE_CSV_FILE_PATH = "StateCode123.csv";
 
-    public int readRecord() {
+    public int readRecord() throws IOException, StateCensusAnalyserException {
         int counter = 0;
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
@@ -26,9 +27,10 @@ public class StateCensusAnalyser {
                 StateCodeData csvUser = csvUserIterator.next();
                 counter++;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (NoSuchFileException e) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_File, "File Not Found");
         }
         return counter;
     }
+
 }

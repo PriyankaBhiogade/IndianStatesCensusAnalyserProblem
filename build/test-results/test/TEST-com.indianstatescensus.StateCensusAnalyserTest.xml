@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.indianstatescensus.StateCensusAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-29T11:04:29" hostname="admin1-desktop" time="0.136">
+<testsuite name="com.indianstatescensus.StateCensusAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-29T12:11:38" hostname="admin1-desktop" time="0.005">
   <properties/>
-  <testcase name="givenStateCSVFile_whenProper_ReturnTrue" classname="com.indianstatescensus.StateCensusAnalyserTest" time="0.136"/>
+  <testcase name="givenStateCSVFile_whenImProper_ReturnCustomException" classname="com.indianstatescensus.StateCensusAnalyserTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
