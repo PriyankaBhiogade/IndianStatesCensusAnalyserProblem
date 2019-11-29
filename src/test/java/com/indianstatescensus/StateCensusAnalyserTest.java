@@ -11,4 +11,5 @@ public class StateCensusAnalyserTest {
         int recordCount = stateCensusAnalyser.readRecord();
         Assert.assertEquals(37,recordCount);
     }
+
 }
