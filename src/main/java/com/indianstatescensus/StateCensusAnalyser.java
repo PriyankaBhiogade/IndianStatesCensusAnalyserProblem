@@ -40,7 +40,7 @@ public class StateCensusAnalyser {
         return counter;
     }
 
-    public static int readCensusRecord() throws IOException {
+    public static int readCensusRecord() throws IOException, StateCensusAnalyserException {
         int counter = 0;
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
@@ -54,6 +54,8 @@ public class StateCensusAnalyser {
                 StateCensusData csvUser = csvUserIterator.next();
                 counter++;
             }
+        }catch (NoSuchFileException ex) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_FILE, "File Not Found");
         }
         return counter;
     }
