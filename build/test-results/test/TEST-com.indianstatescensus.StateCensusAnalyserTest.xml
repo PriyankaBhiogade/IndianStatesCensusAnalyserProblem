@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.indianstatescensus.StateCensusAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-02T07:43:45" hostname="admin1-desktop" time="0.058">
+<testsuite name="com.indianstatescensus.StateCensusAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-02T07:48:36" hostname="admin1-desktop" time="0.061">
   <properties/>
-  <testcase name="givenStateCensusCSVFile_whenDelimiterIncorrect_ReturnCustomException" classname="com.indianstatescensus.StateCensusAnalyserTest" time="0.058"/>
-  <system-out><![CDATA[ERROR IN FILE TYPE OR IN FILE DELIMITER 
+  <testcase name="givenStateCensusCSVFile_whenHeaderIncorrect_ReturnCustomException" classname="com.indianstatescensus.StateCensusAnalyserTest" time="0.061"/>
+  <system-out><![CDATA[ERROR IN FILE TYPE OR IN FILE DELIMITER OR IN FILE HEADER
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -108,7 +108,7 @@ public class StateCensusAnalyserTest {
             stateCensusAnalyser.readCensusRecord();
         } catch (StateCensusAnalyserException e) {
             System.out.println(e.getMessage());
-            Assert.assertEquals("ERROR IN FILE TYPE OR IN FILE DELIMITER ", e.getMessage());
+            Assert.assertEquals("ERROR IN FILE TYPE OR IN FILE DELIMITER OR IN FILE HEADER", e.getMessage());
         }
     }
 
@@ -121,8 +121,20 @@ public class StateCensusAnalyserTest {
             stateCensusAnalyser.readCensusRecord();
         } catch (StateCensusAnalyserException e) {
             System.out.println(e.getMessage());
-            Assert.assertEquals("ERROR IN FILE TYPE OR IN FILE DELIMITER ", e.getMessage());
+            Assert.assertEquals("ERROR IN FILE TYPE OR IN FILE DELIMITER OR IN FILE HEADER", e.getMessage());
         }
     }
 
+    @Test
+    public void givenStateCensusCSVFile_whenHeaderIncorrect_ReturnCustomException() throws IOException {
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser("StateCensusData.csv");
+        try {
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(StateCensusAnalyserException.class);
+            stateCensusAnalyser.readCensusRecord();
+        } catch (StateCensusAnalyserException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals("ERROR IN FILE TYPE OR IN FILE DELIMITER OR IN FILE HEADER", e.getMessage());
+        }
+    }
 }
