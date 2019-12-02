@@ -42,8 +42,7 @@ public class StateCensusAnalyserTest {
             stateCensusAnalyser.readRecord();
         } catch (StateCensusAnalyserException e) {
             System.out.println(e.getMessage());
-            Assert.assertEquals("Incorrect File Extension", e.getMessage());
+            Assert.assertEquals("File Not Found", e.getMessage());
         }
     }
-
 }

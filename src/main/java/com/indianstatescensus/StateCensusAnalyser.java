@@ -12,12 +12,9 @@ import java.nio.file.Paths;
 import java.util.Iterator;
 
 public class StateCensusAnalyser {
-    private static final String SAMPLE_CSV_FILE_PATH = "StateCode.csv";
+    private static final String SAMPLE_CSV_FILE_PATH = "StateCode123456.csv";
 
     public int readRecord() throws IOException, StateCensusAnalyserException {
-        if(!SAMPLE_CSV_FILE_PATH.contains(".csv")){
-            throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.INVALID_EXTENSION, "Incorrect File Extension");
-        }
         int counter = 0;
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
@@ -32,7 +29,7 @@ public class StateCensusAnalyser {
                 counter++;
             }
         } catch (NoSuchFileException e) {
-            throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_File, "File Not Found");
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_FILE, "File Not Found", e);
         }
         return counter;
     }
