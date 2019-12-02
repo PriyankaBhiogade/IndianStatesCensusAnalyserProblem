@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class StateCensusAnalyserTest {
 
+    //UC1
     @Test
     public void givenStateCSVFile_whenProper_ReturnTrue() throws StateCensusAnalyserException, IOException {
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser("StateCode.csv");
@@ -72,4 +73,16 @@ public class StateCensusAnalyserTest {
         }
     }
 
+    //UC2
+    @Test
+    public void givenStateCensusCSVFile_whenProper_ReturnTrue()
+    {
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser("StateCensusData.csv");
+        try {
+            int recordCount = stateCensusAnalyser.readCensusRecord();
+            Assert.assertEquals(29, recordCount);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
