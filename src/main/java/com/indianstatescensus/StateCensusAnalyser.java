@@ -36,7 +36,7 @@ public class StateCensusAnalyser {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_FILE, "File Not Found");
         }
         catch (RuntimeException e){
-         throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.INCORRECT_TYPE, "ERROR IN FILE TYPE OR IN FILE DELIMITER",e);
+         throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.INCORRECT_TYPE, "ERROR IN FILE TYPE OR IN FILE DELIMITER OR IN FILE HEADER",e);
         }
         return counter;
     }
