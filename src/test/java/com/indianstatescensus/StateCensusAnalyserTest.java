@@ -85,16 +85,30 @@ public class StateCensusAnalyserTest {
             Assert.assertEquals("File Not Found", e.getMessage());
         }
     }
+
     @Test
     public void givenStateCensusCSVFile_whenImProper_ReturnCustomException() throws  IOException {
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser("StateCensusData123.csv");
         try {
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(StateCensusAnalyserException.class);
-            stateCensusAnalyser.readRecord();
+            stateCensusAnalyser.readCensusRecord();
         } catch (StateCensusAnalyserException e) {
             System.out.println(e.getMessage());
             Assert.assertEquals("File Not Found", e.getMessage());
+        }
+    }
+
+    @Test
+    public void givenStateCensusCSVFile_whenExtensionIncorrect_ReturnCustomException() throws  IOException {
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser("StateCode.csv");
+        try {
+            ExpectedException exceptionRule = ExpectedException.none();
+            exceptionRule.expect(StateCensusAnalyserException.class);
+            stateCensusAnalyser.readCensusRecord();
+        } catch (StateCensusAnalyserException e) {
+            System.out.println(e.getMessage());
+            Assert.assertEquals("ERROR IN FILE TYPE", e.getMessage());
         }
     }
 }

@@ -10,20 +10,16 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/indianstatescensus/StateCensusAnalyser.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/indianstatescensus/StateCensusAnalyser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/indianstatescensus/StateCensusAnalyserTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.indianstatescensus.StateCensusAnalyserTest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.indianstatescensus.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.indianstatescensus.StateCensusAnalyserTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/indianstatescensus/StateCensusAnalyserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/indianstatescensus/StateCensusAnalyserTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.indianstatescensus.StateCensusAnalyserTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.indianstatescensus.StateCensusAnalyserTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.indianstatescensus.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.indianstatescensus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.indianstatescensus.StateCensusAnalyserTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.indianstatescensus.StateCensusAnalyserTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/indianstatescensus/StateCensusAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/indianstatescensus/StateCensusAnalyser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/indianstatescensus/StateCensusAnalyserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/indianstatescensus/StateCensusAnalyserTest.java" afterDir="false" />
     </list>
@@ -92,18 +88,25 @@
     </option>
   </component>
   <component name="RunManager" selected="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenImProper_ReturnCustomException">
-    <configuration name="StateCensusAnalyser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.indianstatescensus.StateCensusAnalyser" />
-      <module name="IndianStatesCensusAnalyserProblem.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.indianstatescensus.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="StateCensusAnalyserTest.givenStateCSVFile_whenExtensionIncorrect_ReturnCustomException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.indianstatescensus.StateCensusAnalyserTest.givenStateCSVFile_whenExtensionIncorrect_ReturnCustomException&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":cleanTest" />
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="StateCensusAnalyserTest.givenStateCSVFile_whenHeaderIncorrect_ReturnCustomException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -125,12 +128,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StateCensusAnalyserTest.givenStateCSVFile_whenProper_ReturnTrue" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="StateCensusAnalyserTest.givenStateCensusCSVFile_whenExtensionIncorrect_ReturnCustomException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.indianstatescensus.StateCensusAnalyserTest.givenStateCSVFile_whenProper_ReturnTrue&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.indianstatescensus.StateCensusAnalyserTest.givenStateCensusCSVFile_whenExtensionIncorrect_ReturnCustomException&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -188,10 +191,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenImProper_ReturnCustomException" />
+        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenExtensionIncorrect_ReturnCustomException" />
+        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCSVFile_whenExtensionIncorrect_ReturnCustomException" />
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenProper_ReturnTrue" />
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCSVFile_whenHeaderIncorrect_ReturnCustomException" />
-        <item itemvalue="Application.StateCensusAnalyser" />
-        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCSVFile_whenProper_ReturnTrue" />
       </list>
     </recent_temporary>
   </component>

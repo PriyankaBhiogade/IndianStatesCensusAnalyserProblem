@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.indianstatescensus.StateCensusAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-02T07:33:16" hostname="admin1-desktop" time="0.007">
+<testsuite name="com.indianstatescensus.StateCensusAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-12-02T07:40:47" hostname="admin1-desktop" time="0.062">
   <properties/>
-  <testcase name="givenStateCensusCSVFile_whenImProper_ReturnCustomException" classname="com.indianstatescensus.StateCensusAnalyserTest" time="0.007"/>
-  <system-out><![CDATA[File Not Found
+  <testcase name="givenStateCensusCSVFile_whenExtensionIncorrect_ReturnCustomException" classname="com.indianstatescensus.StateCensusAnalyserTest" time="0.062"/>
+  <system-out><![CDATA[ERROR IN FILE TYPE
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
