@@ -1,16 +1,15 @@
 package com.indianstatescensus;
 
-public class StateCensusAnalyserException extends Throwable {
+import java.nio.file.NoSuchFileException;
 
+public class StateCensusAnalyserException extends Throwable {
     enum ExceptionType {
-        NO_SUCH_FILE,INCORRECT_TYPE
+        NO_SUCH_FILE,INCORRECT_INPUT_FILE
     }
 
     ExceptionType type;
 
-
-
-    public StateCensusAnalyserException(ExceptionType type, String message) {
+    public StateCensusAnalyserException(ExceptionType type, String message, NoSuchFileException ex) {
         super(message);
         this.type = type;
     }
