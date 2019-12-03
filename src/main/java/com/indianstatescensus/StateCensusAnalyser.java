@@ -59,7 +59,7 @@ public class StateCensusAnalyser {
                     .build();
             List<StateCensusData> stateCensusData = csvToBean.parse();
             sortStatePopulation(stateCensusData);
-//            sortStateName(stateCensusData);
+            sortStateName(stateCensusData);
             return stateCensusData.size();
         } catch (NoSuchFileException ex) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_FILE, "File Not Found", ex);
