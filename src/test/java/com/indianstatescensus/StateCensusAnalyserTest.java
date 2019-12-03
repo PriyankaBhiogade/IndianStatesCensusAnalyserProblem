@@ -9,6 +9,7 @@ import java.io.IOException;
 public class StateCensusAnalyserTest {
     String stateCodeFilePath = "StateCode.csv";
     String stateCensusFilePath = "StateCensusData.csv";
+    String JSONPath = "StateCensus.json";
 
     //UC1
     @Test
@@ -78,7 +79,7 @@ public class StateCensusAnalyserTest {
     //UC2
     @Test
     public void givenStateCensusCSVFile_whenProper_ReturnTrue() throws IOException {
-        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath);
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath,JSONPath);
         try {
             int recordCount = stateCensusAnalyser.readCensusRecord();
              Assert.assertEquals(29, recordCount);
@@ -90,7 +91,7 @@ public class StateCensusAnalyserTest {
 
     @Test
     public void givenStateCensusCSVFile_whenImProper_ReturnCustomException() throws  IOException {
-        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser("StateCensusData123.csv");
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser("StateCensusData123.csv",JSONPath);
         try {
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(StateCensusAnalyserException.class);
@@ -103,7 +104,7 @@ public class StateCensusAnalyserTest {
 
     @Test
     public void givenStateCensusCSVFile_whenExtensionIncorrect_ReturnCustomException() throws  IOException {
-        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCodeFilePath);
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCodeFilePath,JSONPath);
         try {
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(StateCensusAnalyserException.class);
@@ -116,7 +117,7 @@ public class StateCensusAnalyserTest {
 
     @Test
     public void givenStateCensusCSVFile_whenDelimiterIncorrect_ReturnCustomException() throws  IOException {
-        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath);
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath,JSONPath);
         try {
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(StateCensusAnalyserException.class);
@@ -129,7 +130,7 @@ public class StateCensusAnalyserTest {
 
     @Test
     public void givenStateCensusCSVFile_whenHeaderIncorrect_ReturnCustomException() throws IOException {
-        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath);
+        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath,JSONPath);
         try {
             ExpectedException exceptionRule = ExpectedException.none();
             exceptionRule.expect(StateCensusAnalyserException.class);

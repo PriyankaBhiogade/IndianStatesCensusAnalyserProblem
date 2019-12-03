@@ -16,10 +16,15 @@ import java.util.List;
 
 public class StateCensusAnalyser {
     private static String SAMPLE_CSV_FILE_PATH;
-    private static final String GSON_FILE = "StateCensus.json";
+    private static String GSON_FILE;
 
     public StateCensusAnalyser(String fileName) {
         this.SAMPLE_CSV_FILE_PATH = fileName;
+    }
+
+    public StateCensusAnalyser(String stateCensusFilePath, String jsonPath) {
+        this.SAMPLE_CSV_FILE_PATH = stateCensusFilePath;
+        this.GSON_FILE=jsonPath;
     }
 
     public static int readRecord() throws IOException, StateCensusAnalyserException {
@@ -53,8 +58,8 @@ public class StateCensusAnalyser {
                     .withIgnoreLeadingWhiteSpace(true)
                     .build();
             List<StateCensusData> stateCensusData = csvToBean.parse();
-            SortState(stateCensusData);
-            convertCSVtoJSON(stateCensusData);
+            sortStatePopulation(stateCensusData);
+//            sortStateName(stateCensusData);
             return stateCensusData.size();
         } catch (NoSuchFileException ex) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_FILE, "File Not Found", ex);
@@ -63,9 +68,18 @@ public class StateCensusAnalyser {
         }
     }
 
-    public static void SortState(List<StateCensusData> csvCensusList) {
+    public static void sortStateName(List<StateCensusData> csvCensusList) throws IOException {
         Comparator<StateCensusData> c = (s1, s2) -> s1.getStateName().compareTo(s2.getStateName());
         csvCensusList.sort(c);
+        convertCSVtoJSON(csvCensusList );
+    }
+
+    private static void sortStatePopulation(List<StateCensusData> csvCensusList ) throws IOException {
+        Comparator<StateCensusData> c = (s1, s2) ->
+                Integer.parseInt(s2.getPopulation()) - Integer.parseInt(s1.getPopulation());
+                csvCensusList.sort(c);
+          convertCSVtoJSON(csvCensusList);
+
     }
 
     public static void convertCSVtoJSON( List<StateCensusData> stateCensusData) throws IOException {
@@ -74,7 +88,5 @@ public class StateCensusAnalyser {
         FileWriter fileWriter = new FileWriter(GSON_FILE);
         fileWriter.write(json);
         fileWriter.close();
-
-
     }
 }
