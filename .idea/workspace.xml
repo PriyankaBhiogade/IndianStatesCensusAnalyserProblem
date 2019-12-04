@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="34720d02-c42b-4ff5-a0de-a2a4350538e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StateCensus.json" beforeDir="false" afterPath="$PROJECT_DIR$/StateCensus.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/indianstatescensus/StateCensusAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/indianstatescensus/StateCensusAnalyser.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -173,8 +174,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenProper_ReturnTrue" />
-        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenJSONPAthIncorrect_ReturnCustomException" />
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenHeaderIncorrect_ReturnCustomException" />
+        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenJSONPAthIncorrect_ReturnCustomException" />
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenDelimiterIncorrect_ReturnCustomException" />
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenExtensionIncorrect_ReturnCustomException" />
       </list>

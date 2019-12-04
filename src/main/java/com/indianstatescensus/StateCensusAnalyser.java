@@ -60,6 +60,7 @@ public class StateCensusAnalyser {
             List<StateCensusData> stateCensusData = csvToBean.parse();
             sortStatePopulation(stateCensusData);
             sortStateName(stateCensusData);
+            sortStateDensity(stateCensusData);
             return stateCensusData.size();
         } catch (NoSuchFileException ex) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_FILE, "File Not Found", ex);
@@ -79,6 +80,14 @@ public class StateCensusAnalyser {
                 Integer.parseInt(s2.getPopulation()) - Integer.parseInt(s1.getPopulation());
                 csvCensusList.sort(c);
           convertCSVtoJSON(csvCensusList);
+
+    }
+
+    private static void sortStateDensity(List<StateCensusData> csvCensusList ) throws IOException {
+        Comparator<StateCensusData> c = (s1, s2) ->
+                Integer.parseInt(s2.getDensityPerSqKm()) - Integer.parseInt(s1.getDensityPerSqKm());
+        csvCensusList.sort(c);
+        convertCSVtoJSON(csvCensusList);
 
     }
 
