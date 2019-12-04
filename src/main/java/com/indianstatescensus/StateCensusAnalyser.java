@@ -61,6 +61,7 @@ public class StateCensusAnalyser {
             sortStatePopulation(stateCensusData);
             sortStateName(stateCensusData);
             sortStateDensity(stateCensusData);
+            sortStateArea(stateCensusData);
             return stateCensusData.size();
         } catch (NoSuchFileException ex) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_FILE, "File Not Found", ex);
@@ -86,6 +87,13 @@ public class StateCensusAnalyser {
     private static void sortStateDensity(List<StateCensusData> csvCensusList ) throws IOException {
         Comparator<StateCensusData> c = (s1, s2) ->
                 Integer.parseInt(s2.getDensityPerSqKm()) - Integer.parseInt(s1.getDensityPerSqKm());
+        csvCensusList.sort(c);
+        convertCSVtoJSON(csvCensusList);
+
+    }
+    private static void sortStateArea(List<StateCensusData> csvCensusList ) throws IOException {
+        Comparator<StateCensusData> c = (s1, s2) ->
+                Integer.parseInt(s2.getAreaInSqKm()) - Integer.parseInt(s1.getAreaInSqKm());
         csvCensusList.sort(c);
         convertCSVtoJSON(csvCensusList);
 
