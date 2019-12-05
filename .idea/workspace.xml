@@ -82,7 +82,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.StateCensusAnalyserTest.givenStateCensusCSTFileGetDensityMethod_whenProper_ReturnHighestDensityAndSortByDensityWriteIntoJSON">
+  <component name="RunManager" selected="Gradle.StateCensusAnalyserTest.givenStateCensusCSTFileGetAreaMethod_whenProper_ReturnLargestAreaAndSortByAreaWriteIntoJSON">
     <configuration name="StateCensusAnalyserTest.givenStateCensusCSTFileGetAreaMethod_whenProper_ReturnLargestAreaAndSortByAreaWriteIntoJSON" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -185,8 +185,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSTFileGetDensityMethod_whenProper_ReturnHighestDensityAndSortByDensityWriteIntoJSON" />
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSTFileGetAreaMethod_whenProper_ReturnLargestAreaAndSortByAreaWriteIntoJSON" />
+        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSTFileGetDensityMethod_whenProper_ReturnHighestDensityAndSortByDensityWriteIntoJSON" />
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFileWithGetAreaMethod__whenImProper_ReturnCustomException" />
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSTFileGetDensityMethod_whenProper_ReturnHighestPopulationAndSortByPopulationWriteIntoJSON" />
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFileWithGetPopulationMethod_whenImProper_ReturnCustomException" />
