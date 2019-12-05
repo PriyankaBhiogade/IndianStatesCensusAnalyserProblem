@@ -7,49 +7,27 @@ import com.opencsv.bean.CsvToBeanBuilder;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
-import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
-public class StateCensusAnalyser {
+public class StateCensusAnalyser<T extends Comparable<T>> {
     private static String SAMPLE_CSV_FILE_PATH;
     private static String GSON_FILE;
+    private static String methodName;
+    private static String STATE_CENSUS_DATA;
 
-    public StateCensusAnalyser(String fileName) {
-        this.SAMPLE_CSV_FILE_PATH = fileName;
-    }
-
-    public StateCensusAnalyser(String stateCensusFilePath, String jsonPath) {
+    public StateCensusAnalyser(String stateCensusFilePath, String jsonPath, String className,String methodName) {
         this.SAMPLE_CSV_FILE_PATH = stateCensusFilePath;
-        this.GSON_FILE=jsonPath;
+        this.GSON_FILE = jsonPath;
+        this.STATE_CENSUS_DATA = className;
+        this.methodName = methodName;
     }
 
-    public static int readRecord() throws IOException, StateCensusAnalyserException {
-        int counter = 0;
-        try (
-                Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
-        ) {
-            CsvToBean<StateCodeData> csvToBean = new CsvToBeanBuilder(reader)
-                    .withType(StateCodeData.class)
-                    .withIgnoreLeadingWhiteSpace(true)
-                    .build();
-            Iterator<StateCodeData> csvUserIterator = csvToBean.iterator();
-            while (csvUserIterator.hasNext()) {
-                StateCodeData csvUser = csvUserIterator.next();
-                counter++;
-            }
-        } catch (NoSuchFileException ex) {
-            throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_FILE, "File Not Found", ex);
-        } catch (RuntimeException e) {
-            throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.INCORRECT_INPUT_FILE, "ERROR IN FILE TYPE OR IN FILE DELIMITER OR IN FILE HEADER", e);
-        }
-        return counter;
-    }
-
-    public static int readCensusRecord() throws IOException, StateCensusAnalyserException {
+    public List<StateCensusData> readCensusRecord() throws IOException, StateCensusAnalyserException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
         ) {
@@ -58,48 +36,37 @@ public class StateCensusAnalyser {
                     .withIgnoreLeadingWhiteSpace(true)
                     .build();
             List<StateCensusData> stateCensusData = csvToBean.parse();
-            sortStatePopulation(stateCensusData);
-            sortStateName(stateCensusData);
-            sortStateDensity(stateCensusData);
-            sortStateArea(stateCensusData);
-            return stateCensusData.size();
-        } catch (NoSuchFileException ex) {
+            this.SortState(stateCensusData, methodName);
+            return stateCensusData;
+        }catch (NoSuchFileException ex) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_FILE, "File Not Found", ex);
-        } catch (RuntimeException e) {
-            throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.INCORRECT_INPUT_FILE, "ERROR IN FILE TYPE OR IN FILE DELIMITER OR IN FILE HEADER", e);
+        }catch (RuntimeException e) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.INCORRECT_INPUT_FILE, "ERROR IN FILE TYPE OR IN FILE DELIMITER OR IN FILE HEADER OR METHOD NOT FOUND", e);
+        }catch (NoSuchMethodException e) {
+            throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_METHOD, "METHOD NOT FOUND", e);
         }
     }
 
-    public static void sortStateName(List<StateCensusData> csvCensusList) throws IOException {
-        Comparator<StateCensusData> c = (s1, s2) -> s1.getStateName().compareTo(s2.getStateName());
-        csvCensusList.sort(c);
-        convertCSVtoJSON(csvCensusList );
+    public void SortState(List<StateCensusData> csvCensusData, String methodName) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, IOException {
+        for (int i = 0; i < csvCensusData.size() - 1; i++) {
+            for (int j = 0; j < csvCensusData.size() - i - 1; j++) {
+                Class getClass1 = csvCensusData.get(j).getClass();
+                Method methodCall1 = getClass1.getDeclaredMethod(methodName);
+                T listData1 = (T) methodCall1.invoke(csvCensusData.get(j));
+                Class getClass2 = csvCensusData.get(j + 1).getClass();
+                Method methodCall2 = getClass2.getDeclaredMethod(methodName);
+                T listData2 = (T) methodCall2.invoke(csvCensusData.get(j + 1));
+                if (listData1.compareTo(listData2) > 0) {
+                    StateCensusData temp = csvCensusData.get(j);
+                    csvCensusData.set(j, csvCensusData.get(j + 1));
+                    csvCensusData.set(j + 1, temp);
+                }
+            }
+        }
+        convertCSVtoJSON(csvCensusData);
     }
 
-    private static void sortStatePopulation(List<StateCensusData> csvCensusList ) throws IOException {
-        Comparator<StateCensusData> c = (s1, s2) ->
-                Integer.parseInt(s2.getPopulation()) - Integer.parseInt(s1.getPopulation());
-                csvCensusList.sort(c);
-          convertCSVtoJSON(csvCensusList);
-
-    }
-
-    private static void sortStateDensity(List<StateCensusData> csvCensusList ) throws IOException {
-        Comparator<StateCensusData> c = (s1, s2) ->
-                Integer.parseInt(s2.getDensityPerSqKm()) - Integer.parseInt(s1.getDensityPerSqKm());
-        csvCensusList.sort(c);
-        convertCSVtoJSON(csvCensusList);
-
-    }
-    private static void sortStateArea(List<StateCensusData> csvCensusList ) throws IOException {
-        Comparator<StateCensusData> c = (s1, s2) ->
-                Integer.parseInt(s2.getAreaInSqKm()) - Integer.parseInt(s1.getAreaInSqKm());
-        csvCensusList.sort(c);
-        convertCSVtoJSON(csvCensusList);
-
-    }
-
-    public static void convertCSVtoJSON( List<StateCensusData> stateCensusData) throws IOException {
+    public static void convertCSVtoJSON(List<StateCensusData> stateCensusData) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(stateCensusData);
         FileWriter fileWriter = new FileWriter(GSON_FILE);
