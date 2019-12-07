@@ -12,10 +12,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/StateCensus.json" beforeDir="false" afterPath="$PROJECT_DIR$/StateCensus.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StateCensusData.csv" beforeDir="false" afterPath="$PROJECT_DIR$/StateCensusData.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/indianstatescensus/StateCensusAnalyser.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/indianstatescensus/StateCensusAnalyser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/indianstatescensus/StateCensusAnalyserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/indianstatescensus/StateCensusAnalyserTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.indianstatescensus.StateCensusAnalyserTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.indianstatescensus.StateCensusAnalyserTest.html" afterDir="false" />
@@ -24,6 +22,7 @@
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.indianstatescensus.StateCensusAnalyserTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.indianstatescensus.StateCensusAnalyserTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/indianstatescensus/StateCensusAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/indianstatescensus/StateCensusAnalyser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/indianstatescensus/StateCensusAnalyserException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/indianstatescensus/StateCensusAnalyserException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/indianstatescensus/StateCensusAnalyserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/indianstatescensus/StateCensusAnalyserTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -90,13 +89,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.StateCensusAnalyserTest.givenStateCensusCSTFileGetDensityMethod_whenProper_ReturnHighestDensityAndSortByDensityWriteIntoJSON">
-    <configuration name="StateCensusAnalyserTest.givenStateCensusCSTFileGetDensityMethod_whenProper_ReturnHighestDensityAndSortByDensityWriteIntoJSON" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenDelimiterIncorrect_ReturnCustomException">
+    <configuration name="StateCensusAnalyserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.indianstatescensus.StateCensusAnalyserTest.givenStateCensusCSTFileGetDensityMethod_whenProper_ReturnHighestDensityAndSortByDensityWriteIntoJSON&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.indianstatescensus.StateCensusAnalyserTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -111,12 +110,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StateCensusAnalyserTest.givenStateCensusCSTFileGetPopulationMethod_whenProper_ReturnHighestPopulationAndSortByPopulationWriteIntoJSON" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="StateCensusAnalyserTest.givenStateCensusCSVFileWithGetAreaMethod__whenImProper_ReturnCustomException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.indianstatescensus.StateCensusAnalyserTest.givenStateCensusCSTFileGetPopulationMethod_whenProper_ReturnHighestPopulationAndSortByPopulationWriteIntoJSON&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.indianstatescensus.StateCensusAnalyserTest.givenStateCensusCSVFileWithGetAreaMethod__whenImProper_ReturnCustomException&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -131,12 +130,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StateCensusAnalyserTest.givenStateCensusCSVFile_whenExtensionIncorrect_ReturnCustomException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="StateCensusAnalyserTest.givenStateCensusCSVFile_whenDelimiterIncorrect_ReturnCustomException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.indianstatescensus.StateCensusAnalyserTest.givenStateCensusCSVFile_whenExtensionIncorrect_ReturnCustomException&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.indianstatescensus.StateCensusAnalyserTest.givenStateCensusCSVFile_whenDelimiterIncorrect_ReturnCustomException&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -151,12 +150,12 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="StateCensusAnalyserTest.givenStateCensusCSVFile_whenProper_ReturnCountAndSortByStateNameWriteIntoJSON" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="StateCensusAnalyserTest.givenStateCensusCSVFile_whenProper_ReturnCount" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.indianstatescensus.StateCensusAnalyserTest.givenStateCensusCSVFile_whenProper_ReturnCountAndSortByStateNameWriteIntoJSON&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.indianstatescensus.StateCensusAnalyserTest.givenStateCensusCSVFile_whenProper_ReturnCount&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -193,11 +192,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSTFileGetDensityMethod_whenProper_ReturnHighestDensityAndSortByDensityWriteIntoJSON" />
+        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenDelimiterIncorrect_ReturnCustomException" />
         <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenProper_ReturnTopNameSortByStateNameWriteIntoJSON" />
-        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenProper_ReturnCountAndSortByStateNameWriteIntoJSON" />
-        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenExtensionIncorrect_ReturnCustomException" />
-        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSTFileGetPopulationMethod_whenProper_ReturnHighestPopulationAndSortByPopulationWriteIntoJSON" />
+        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFile_whenProper_ReturnCount" />
+        <item itemvalue="Gradle.StateCensusAnalyserTest" />
+        <item itemvalue="Gradle.StateCensusAnalyserTest.givenStateCensusCSVFileWithGetAreaMethod__whenImProper_ReturnCustomException" />
       </list>
     </recent_temporary>
   </component>
