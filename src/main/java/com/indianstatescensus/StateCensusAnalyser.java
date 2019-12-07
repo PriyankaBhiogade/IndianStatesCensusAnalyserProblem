@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
@@ -15,29 +16,34 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class StateCensusAnalyser<T extends Comparable<T>> {
-    private static String SAMPLE_CSV_FILE_PATH;
-    private static String GSON_FILE;
-    private static String methodName;
-    private static String STATE_CENSUS_DATA;
+    static String jsonPath;
+    String csvFilePath;
+    String methodName;
+    String stateCensusClassName;
 
-    public StateCensusAnalyser(String stateCensusFilePath, String jsonPath, String className,String methodName) {
-        this.SAMPLE_CSV_FILE_PATH = stateCensusFilePath;
-        this.GSON_FILE = jsonPath;
-        this.STATE_CENSUS_DATA = className;
-        this.methodName = methodName;
+    public StateCensusAnalyser(String stateCensusFilePath, String jsonPath, String className,String sortBy) {
+        this.csvFilePath = stateCensusFilePath;
+        this.jsonPath = jsonPath;
+        this.stateCensusClassName = className;
+        this.methodName = sortBy;
     }
 
     public List<StateCensusData> readCensusRecord() throws IOException, StateCensusAnalyserException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
         try (
-                Reader reader = Files.newBufferedReader(Paths.get(SAMPLE_CSV_FILE_PATH));
+                Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
         ) {
             CsvToBean<StateCensusData> csvToBean = new CsvToBeanBuilder(reader)
                     .withType(StateCensusData.class)
                     .withIgnoreLeadingWhiteSpace(true)
                     .build();
             List<StateCensusData> stateCensusData = csvToBean.parse();
-            this.SortState(stateCensusData, methodName);
-            return stateCensusData;
+            if(methodName.length() > 0) {
+                this.SortState(stateCensusData, methodName);
+                return stateCensusData;
+            }
+            else {
+                return stateCensusData;
+            }
         }catch (NoSuchFileException ex) {
             throw new StateCensusAnalyserException(StateCensusAnalyserException.ExceptionType.NO_SUCH_FILE, "File Not Found", ex);
         }catch (RuntimeException e) {
@@ -51,10 +57,10 @@ public class StateCensusAnalyser<T extends Comparable<T>> {
         for (int i = 0; i < csvCensusData.size() - 1; i++) {
             for (int j = 0; j < csvCensusData.size() - i - 1; j++) {
                 Class getClass1 = csvCensusData.get(j).getClass();
-                Method methodCall1 = getClass1.getDeclaredMethod(methodName);
+                Method methodCall1 = getClass1.getDeclaredMethod("get"+methodName);
                 T listData1 = (T) methodCall1.invoke(csvCensusData.get(j));
                 Class getClass2 = csvCensusData.get(j + 1).getClass();
-                Method methodCall2 = getClass2.getDeclaredMethod(methodName);
+                Method methodCall2 = getClass2.getDeclaredMethod("get"+methodName);
                 T listData2 = (T) methodCall2.invoke(csvCensusData.get(j + 1));
                 if (listData1.compareTo(listData2) > 0) {
                     StateCensusData temp = csvCensusData.get(j);
@@ -69,7 +75,7 @@ public class StateCensusAnalyser<T extends Comparable<T>> {
     public static void convertCSVtoJSON(List<StateCensusData> stateCensusData) throws IOException {
         Gson gson = new Gson();
         String json = gson.toJson(stateCensusData);
-        FileWriter fileWriter = new FileWriter(GSON_FILE);
+        FileWriter fileWriter = new FileWriter(jsonPath);
         fileWriter.write(json);
         fileWriter.close();
     }
