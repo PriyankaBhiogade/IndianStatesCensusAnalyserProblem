@@ -96,10 +96,10 @@ public class StateCensusAnalyserTest {
 
     @Test
     public void givenStateCensusCSTFileGetPopulationMethod_whenProper_ReturnHighestPopulationAndSortByPopulationWriteIntoJSON() {
-        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath, jsonPath, STATE_CENSUS_DATA, "Population");
+        StateCensusAnalyser<Integer> stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath, jsonPath, STATE_CENSUS_DATA, "Population");
         try {
             List<StateCensusData> highestPopulation = stateCensusAnalyser.readCensusRecord();
-            Assert.assertEquals("10116752", highestPopulation.get(0).getPopulation());
+            Assert.assertEquals(199812341,highestPopulation.get(highestPopulation.size()-1).getPopulation());
         } catch (StateCensusAnalyserException e) {
             Assert.assertEquals(StateCensusAnalyserException.ExceptionType.NO_SUCH_METHOD, e.type);
         }
@@ -110,7 +110,7 @@ public class StateCensusAnalyserTest {
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath, jsonPath, STATE_CENSUS_DATA, "Population123");
         try {
             List<StateCensusData> highestPopulation = stateCensusAnalyser.readCensusRecord();
-            Assert.assertEquals("10116752", highestPopulation.get(0).getPopulation());
+            Assert.assertEquals(199812341, highestPopulation.get(0).getPopulation());
         } catch (StateCensusAnalyserException e) {
             Assert.assertEquals(StateCensusAnalyserException.ExceptionType.NO_SUCH_METHOD, e.type);
         }
@@ -121,7 +121,7 @@ public class StateCensusAnalyserTest {
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath, jsonPath, STATE_CENSUS_DATA, "DensityPerSqKm");
         try {
             List<StateCensusData> highestDensity = stateCensusAnalyser.readCensusRecord();
-            Assert.assertEquals("1010", highestDensity.get(0).getDensityPerSqKm());
+            Assert.assertEquals(1102, highestDensity.get(highestDensity.size()-1).getDensityPerSqKm());
         } catch (StateCensusAnalyserException e) {
             Assert.assertEquals(StateCensusAnalyserException.ExceptionType.NO_SUCH_METHOD, e.type);
         }
@@ -132,7 +132,7 @@ public class StateCensusAnalyserTest {
         StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath, jsonPath, STATE_CENSUS_DATA, "Density");
         try {
             List<StateCensusData> highestDensity = stateCensusAnalyser.readCensusRecord();
-            Assert.assertEquals("1382611", highestDensity.get(0).getDensityPerSqKm());
+            Assert.assertEquals(1102, highestDensity.get(0).getDensityPerSqKm());
         } catch (StateCensusAnalyserException e) {
             Assert.assertEquals(StateCensusAnalyserException.ExceptionType.NO_SUCH_METHOD, e.type);
         }
@@ -140,10 +140,10 @@ public class StateCensusAnalyserTest {
 
     @Test
     public void givenStateCensusCSTFileGetAreaMethod_whenProper_ReturnLargestAreaAndSortByAreaWriteIntoJSON() {
-        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath, jsonPath, STATE_CENSUS_DATA, "AreaInSqKm");
+        StateCensusAnalyser<Integer> stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath, jsonPath, STATE_CENSUS_DATA, "AreaInSqKm");
         try {
             List<StateCensusData> largestArea = stateCensusAnalyser.readCensusRecord();
-            Assert.assertEquals("10486", largestArea.get(0).getAreaInSqKm());
+            Assert.assertEquals(342239, largestArea.get(largestArea.size()-1 ).getAreaInSqKm());
         } catch (StateCensusAnalyserException e) {
             Assert.assertEquals(StateCensusAnalyserException.ExceptionType.NO_SUCH_METHOD,e.type);
         }
@@ -151,10 +151,10 @@ public class StateCensusAnalyserTest {
 
     @Test
     public void givenStateCensusCSVFileWithGetAreaMethod__whenImProper_ReturnCustomException() {
-        StateCensusAnalyser stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath, jsonPath, STATE_CENSUS_DATA, "Area");
+        StateCensusAnalyser<Integer> stateCensusAnalyser = new StateCensusAnalyser(stateCensusFilePath, jsonPath, STATE_CENSUS_DATA, "Area");
         try {
             List<StateCensusData> largestArea = stateCensusAnalyser.readCensusRecord();
-            Assert.assertEquals("1102", largestArea.get(0).getAreaInSqKm());
+            Assert.assertEquals(342239, largestArea.get(0).getAreaInSqKm());
         } catch (StateCensusAnalyserException e) {
             Assert.assertEquals(StateCensusAnalyserException.ExceptionType.NO_SUCH_METHOD, e.type);
         }

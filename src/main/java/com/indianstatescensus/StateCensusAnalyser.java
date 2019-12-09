@@ -28,7 +28,6 @@ public class StateCensusAnalyser<T extends Comparable<T>> {
     }
 
     public List<StateCensusData> readCensusRecord() throws StateCensusAnalyserException {
-
         try (
                 Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
         ) {
